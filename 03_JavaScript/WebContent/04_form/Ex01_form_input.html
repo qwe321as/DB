@@ -49,11 +49,17 @@
 		str += myform.hobby[i].value +"/";
 				flag=true;}
 		}
-	str += " \n";
+		str += " \n";
 		if (flag == false) {
 			alert("취미 최소 한개는 선택해야합니다.");
 			return false;
 		}
+		index = document.myform.food.selectedIndex;
+		if (index==0) {
+			alert("메뉴 선택하세요")
+			return false;
+		}
+			str += myform.food[index].value+" \n";
 
 		alert(str);
 	}
@@ -81,7 +87,15 @@
 		<input type="checkbox" name="hobby" value="영화감상">영화감상
 		<input type="checkbox" name="hobby" value="연극감상">연극감상
 		<input type="checkbox" name="hobby" value="뮤지컬감상">뮤지컬감상
-		<input type="checkbox" name="hobby" value="전시회감상">전시회감상			 
+		<input type="checkbox" name="hobby" value="전시회감상">전시회감상<br>			 
+		<br> 좋아하는 음식을 선택하세요<br>
+		<select id = "favo" name="food">
+		<option value="선택">선택</option>
+		<option value="짜장면">짜장면</option>
+		<option value="탕수육">탕수육</option>
+		<option value="피자">피자</option>
+		<option value="햄버거">햄버거</option>
+		</select>
 		<br><br>
 		<input type="submit" value="등록"	onClick="return check()"> 
 		<input type="reset" value="취소">
